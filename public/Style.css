@@ -269,8 +269,9 @@
 
 
 .sectionfour {
-  padding-top: 5rem;
+  margin-top: 5rem;
   background-color: #e4f3fa;
+  padding: 5rem;
 }
 
 
@@ -291,16 +292,51 @@
 
 .toolimg {
   max-width: 120px;
-  height: 60px; 
+  height: 60px;
   cursor: pointer;
   margin: 15px;
   filter: grayscale(100%);
-  border-left: 2px solid #acacac; 
-  padding-left: 10px; 
-  object-fit: contain; 
-  align-items: stretch; 
+  border-left: 2px solid #acacac;
+  padding-left: 10px;
+  object-fit: contain;
+  align-items: stretch;
 }
 
 .toolimg:hover {
   filter: grayscale(0);
 }
+
+
+
+.counterdiv {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.counter_num,
+.countspan {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.counter_name {
+  font-size: 18px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #000000;
+
+}
+
+
+.list-unstyled , .text-uppercase {
+  text-align: left;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #242424;
+
+}
+
+

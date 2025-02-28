@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
-
+import { Modal, Button } from "react-bootstrap";
 // images import here 
 
 
@@ -59,6 +59,7 @@ import event2 from '../../Images/Kiteactive.png'
 import event3 from '../../Images/Samridhi.png'
 
 const Sectiontwo = () => {
+
     const [selectedCategory, setSelectedCategory] = useState(null);
 
     const portfolioData = [
@@ -112,11 +113,27 @@ const Sectiontwo = () => {
     ];
 
 
+
+    // tab categories 
     const categories = ["All", "Fashion", "Health & Beauty", "Technology", "Corporate Website", "Education", "Real Estate", "Landing Page", "Event and Ticket Booking"];
 
     const filteredProjects = selectedCategory && selectedCategory !== "All"
         ? portfolioData.filter((item) => item.category === selectedCategory)
         : portfolioData;
+
+
+
+
+
+    const [selectedProject, setSelectedProject] = useState(null);
+    const [show, setShow] = useState(false);
+
+    const handleShow = (project) => {
+        setSelectedProject(project);
+        setShow(true);
+    };
+
+    const handleClose = () => setShow(false);
 
     return (
         <div>
@@ -142,11 +159,13 @@ const Sectiontwo = () => {
                 <div className="row">
                     {filteredProjects.map((item) => (
                         <div key={item.id} className="col-md-4 mb-2">
-                            <div className="my_card h-100 card">
+                            <div className="my_card h-100 card" onClick={() => handleShow(item)} style={{ cursor: "pointer" }}>
                                 <div className="card_body">
                                     <img src={item.image} className="card_img" alt={item.title} />
                                     <h5 className="card_title">
-                                        <NavLink to={item.website} className="nav-link ">{item.title}</NavLink>
+                                        <NavLink to={item.website} className="nav-link">
+                                            {item.title}
+                                        </NavLink>
                                     </h5>
                                     <p className="card_desc">{item.description}</p>
                                 </div>
@@ -154,8 +173,27 @@ const Sectiontwo = () => {
                         </div>
                     ))}
                 </div>
-                {selectedCategory && filteredProjects.length === 0 && <p className="text-center  text-info mt-4">No projects found for this category.</p>}
+
+                {/* Bootstrap Modal */}
+                <Modal show={show} onHide={handleClose} centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{selectedProject?.title}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <img src={selectedProject?.image} className="img-fluid mb-3" alt={selectedProject?.title} />
+                        <p>{selectedProject?.description}</p>
+                        <NavLink to={selectedProject?.website} className="btn btn-primary" target="_blank">
+                            Visit Website
+                        </NavLink>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
+            {selectedCategory && filteredProjects.length === 0 && <p className="text-center  text-info mt-4">No projects found for this category.</p>}
         </div>
     );
 }

@@ -49,35 +49,37 @@ const Sectionfour = () => {
             </div>
 
             {/* Counter Section */}
-            <div className="counter-section">
+            <div className="container mt-5 mb-5">
 
                 <div className="row">
                     <div className="col">
-                        <h2 className='section_four_heading'>Technology and Tools we use</h2>
+                        <h2 className='section_four_heading'> Satisfied Clients, Trusted by Many</h2>
                         <p className='section_four_para'>
-                            At Danstring Technologies, we leverage the latest technologies and cutting-edge tools to
-                            deliver outstanding solutions for our clients. Our expertise ensures top-quality results,
-                            tailored to meet your business needs with precision and innovation.
+                            We have successfully partnered with 500+ clients worldwide, ensuring satisfaction through top-tier digital solutions, seamless execution, and customer-focused strategies.
                         </p>
                     </div>
                 </div>
-                {/* Profile Section */}
-                <div className="photo-profile">
-                    {/* <img src="profile.jpg" alt="Profile" /> */}
-                </div>
 
-                {/* Counter Section */}
-                <div className="numbers">
-                    {[
-                        { number: 105, title: "Posts" },
-                        { number: 5175, title: "Followers" },
-                        { number: 468, title: "Following" },
-                    ].map((item, index) => (
-                        <div key={index} className="counter-box">
-                            <CountUp duration={2} className="counter" end={item.number} />
-                            <span>{item.title}</span>
+                <div className="row">
+
+                    <div className="col">
+
+                        {/* Counter Section */}
+                        <div className="counterdiv">
+                            {[
+                                { number: 105, title: "Team Member" },
+                                { number: 600, title: "Satisfied Clients & Growing" },
+                                { number: 1200, title: "Completed Websites" },
+                                { number: 100, title: "Sales Generated for Clients" },
+                            ].map((item, index) => (
+                                <div key={index} className="counter-box">
+                                    <CountUp duration={2} className="counter_num" end={item.number} /><span className='countspan'>+</span>
+                                    <div className='counter_name'>{item.title}</div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+
+                    </div>
                 </div>
             </div>
         </div>
