@@ -1,6 +1,6 @@
+import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
 // images import here 
 
 
@@ -124,17 +124,18 @@ const Sectiontwo = () => {
 
 
 
-
+    const [showPopup, setShowPopup] = useState(false);
     const [selectedProject, setSelectedProject] = useState(null);
-    const [show, setShow] = useState(false);
 
-    const handleShow = (project) => {
-        setSelectedProject(project);
-        setShow(true);
+    const handleShow = (item) => {
+        setSelectedProject(item);
+        setShowPopup(true);
     };
 
-    const handleClose = () => setShow(false);
-
+    const handleClose = () => {
+        setShowPopup(false);
+        setSelectedProject(null);
+    };
     return (
         <div>
             <div className="container-fluid second_cont">
@@ -174,24 +175,64 @@ const Sectiontwo = () => {
                     ))}
                 </div>
 
-                {/* Bootstrap Modal */}
-                <Modal show={show} onHide={handleClose} centered>
-                    <Modal.Header closeButton>
-                        <Modal.Title>{selectedProject?.title}</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <img src={selectedProject?.image} className="img-fluid mb-3" alt={selectedProject?.title} />
-                        <p>{selectedProject?.description}</p>
-                        <NavLink to={selectedProject?.website} className="btn btn-primary" target="_blank">
-                            Visit Website
-                        </NavLink>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
-                            Close
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
+                {/* Custom Popup Box */}
+                {showPopup && (
+                    <motion.div
+                        className="popup-overlay"
+                        onClick={handleClose}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        <motion.div
+                            className="popup-box"
+                            onClick={(e) => e.stopPropagation()}
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                        >
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-lg-6">
+                                        <div className="mt-5">
+                                            <h2 className="right-text">{selectedProject?.title}</h2>
+                                            <p className="right_para">{selectedProject?.description}</p>
+                                        </div>
+
+
+                                        <NavLink className="My_link" to={selectedProject?.website}>
+                                            <span>View Website</span>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 74 74"
+                                                height="34"
+                                                width="34"
+                                            >
+                                                <circle stroke-width="3" stroke="black" r="35.5" cy="37" cx="37"></circle>
+                                                <path
+                                                    fill="black"
+                                                    d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z"
+                                                ></path>
+                                            </svg>
+                                        </NavLink>
+
+                                    </div>
+                                    <div className="col-lg-6">
+                                        <button className="close-btn" onClick={handleClose}>&times;</button>
+                                        <img src={selectedProject?.image} className="w-100 mb-3" alt={selectedProject?.title} />
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </motion.div>
+                    </motion.div>
+                )}
             </div>
             {selectedCategory && filteredProjects.length === 0 && <p className="text-center  text-info mt-4">No projects found for this category.</p>}
         </div>

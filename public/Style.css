@@ -332,7 +332,8 @@
 }
 
 
-.list-unstyled , .text-uppercase {
+.list-unstyled,
+.text-uppercase {
   text-align: left;
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: #242424;
@@ -340,3 +341,80 @@
 }
 
 
+
+
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.869);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 70%;
+  height: 60vh;
+  text-align: center;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+
+.My_link {
+  cursor: pointer;
+  width: 12rem;
+  font-weight: 700;
+  transition: all 0.2s;
+  margin: auto;
+  padding: 8px 17px;
+  border-radius: 100px;
+  background: #3580c3;
+  border: 1px solid transparent;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  text-decoration: none;
+  list-style: none;
+  color: #000000;
+}
+
+.My_link:hover {
+  background: #4ba1ed;
+  color: #000000;
+  text-decoration: none;
+}
+
+.My_link>svg {
+  width: 34px;
+  margin-left: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.My_link:hover svg {
+  transform: translateX(5px);
+}
+
+.My_link:active {
+  transform: scale(0.95);
+}
