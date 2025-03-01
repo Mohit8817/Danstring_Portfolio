@@ -59,12 +59,10 @@ const Sectionfour = () => {
                         </p>
                     </div>
                 </div>
+                {/* Counter Section */}
 
                 <div className="row">
-
                     <div className="col">
-
-                        {/* Counter Section */}
                         <div className="counterdiv">
                             {[
                                 { number: 105, title: "Team Member" },

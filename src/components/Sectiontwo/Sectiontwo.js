@@ -197,6 +197,10 @@ const Sectiontwo = () => {
                                 <div className="row">
                                     <div className="col-lg-6">
                                         <div className="mt-5">
+                                            <div className="forMobile">
+                                                <button className="close-btn " onClick={handleClose}>&times;</button>
+                                                <img src={selectedProject?.image} className="w-100 mb-3" alt={selectedProject?.title} />
+                                            </div>
                                             <h2 className="right-text">{selectedProject?.title}</h2>
                                             <p className="right_para">{selectedProject?.description}</p>
                                         </div>
@@ -221,8 +225,10 @@ const Sectiontwo = () => {
 
                                     </div>
                                     <div className="col-lg-6">
-                                        <button className="close-btn" onClick={handleClose}>&times;</button>
-                                        <img src={selectedProject?.image} className="w-100 mb-3" alt={selectedProject?.title} />
+                                       <div className="fordesktop">
+                                       <button className="close-btn" onClick={handleClose}>&times;</button>
+                                       <img src={selectedProject?.image} className="w-100 mb-3" alt={selectedProject?.title} />
+                                       </div>
                                     </div>
                                 </div>
                             </div>
