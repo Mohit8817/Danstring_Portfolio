@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Danstring_Portfolio/static/css/main.f855e6bc.css",
-    "main.js": "/Danstring_Portfolio/static/js/main.215b431a.js",
+    "main.js": "/Danstring_Portfolio/static/js/main.d0031be8.js",
     "static/js/453.bf44ee43.chunk.js": "/Danstring_Portfolio/static/js/453.bf44ee43.chunk.js",
     "static/media/cardimg2.png": "/Danstring_Portfolio/static/media/cardimg2.df160b8b784875855816.png",
     "static/media/Right_img.jpg": "/Danstring_Portfolio/static/media/Right_img.300825f42f26b818709b.jpg",
@@ -46,11 +46,11 @@
     "static/media/toolimg.webp": "/Danstring_Portfolio/static/media/toolimg.0146fdbd07c3bc212c95.webp",
     "index.html": "/Danstring_Portfolio/index.html",
     "main.f855e6bc.css.map": "/Danstring_Portfolio/static/css/main.f855e6bc.css.map",
-    "main.215b431a.js.map": "/Danstring_Portfolio/static/js/main.215b431a.js.map",
+    "main.d0031be8.js.map": "/Danstring_Portfolio/static/js/main.d0031be8.js.map",
     "453.bf44ee43.chunk.js.map": "/Danstring_Portfolio/static/js/453.bf44ee43.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.215b431a.js"
+    "static/js/main.d0031be8.js"
   ]
 }
